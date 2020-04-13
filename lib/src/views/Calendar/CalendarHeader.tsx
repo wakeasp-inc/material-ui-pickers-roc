@@ -93,7 +93,7 @@ export const CalendarHeader: React.SFC<CalendarHeaderProps> = ({
           className={classes.transitionContainer}
         >
           <Typography align="center" variant="body1">
-            {utils.getCalendarHeaderText(currentMonth)}
+            {utils.format(currentMonth, `民國 ${utils.getYear(currentMonth) - 1911}年 MMMM`)}
           </Typography>
         </SlideTransition>
 

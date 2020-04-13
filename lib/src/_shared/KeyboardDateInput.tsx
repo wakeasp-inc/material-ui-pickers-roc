@@ -81,6 +81,7 @@ export const KeyboardDateInput: React.FunctionComponent<KeyboardDateInputProps> 
 
   const handleChange = (text: string) => {
     const finalString = text === '' || text === inputMask ? null : text;
+
     onChange(finalString);
   };
 

@@ -82,7 +82,7 @@ export const YearSelection: React.FC<YearSelectionProps> = ({
                 (disableFuture && utils.isAfterYear(year, utils.date()))
             )}
           >
-            {utils.getYearText(year)}
+            {'民國: ' + (parseInt(utils.getYearText(year)) - 1911)}
           </Year>
         );
       })}

@@ -7,29 +7,8 @@ function BasicDatePicker(props) {
   return (
     <Fragment>
       <DatePicker
-        label="Basic example"
-        value={selectedDate}
-        onChange={handleDateChange}
-        animateYearScrolling
-      />
-
-      <DatePicker
-        autoOk
-        label="Clearable"
-        clearable
-        disableFuture
-        value={selectedDate}
-        onChange={handleDateChange}
-      />
-
-      <DatePicker
-        disableFuture
-        openTo="year"
-        format={props.__willBeReplacedGetFormatString({
-          moment: 'DD/MM/YYYY',
-          dateFns: 'dd/MM/yyyy',
-        })}
-        label="Date of birth"
+        format={'yyyy/MM/dd'}
+        label="日期"
         views={['year', 'month', 'date']}
         value={selectedDate}
         onChange={handleDateChange}

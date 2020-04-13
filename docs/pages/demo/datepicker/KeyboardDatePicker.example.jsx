@@ -3,23 +3,22 @@ import { KeyboardDatePicker } from '@material-ui/pickers';
 
 function KeyboardDatePickerExample(props) {
   const [selectedDate, handleDateChange] = useState(new Date());
-
+  console.log(selectedDate);
   return (
     <Fragment>
       <KeyboardDatePicker
         clearable
         value={selectedDate}
-        placeholder="10/10/2018"
+        placeholder="100/01/01"
         onChange={date => handleDateChange(date)}
-        minDate={new Date()}
         format={props.__willBeReplacedGetFormatString({
-          moment: 'MM/DD/YYYY',
-          dateFns: 'MM/dd/yyyy',
+          moment: 'YYYY/MM/DD',
+          dateFns: 'yyyy/MM/dd',
         })}
       />
 
       <KeyboardDatePicker
-        placeholder="2018/10/10"
+        placeholder="100/10/10"
         value={selectedDate}
         onChange={date => handleDateChange(date)}
         format={props.__willBeReplacedGetFormatString({

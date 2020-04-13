@@ -48,7 +48,7 @@ export const DatePickerToolbar: React.FC<ToolbarComponentProps> = ({
         variant={isYearOnly ? 'h3' : 'subtitle1'}
         onClick={() => setOpenView('year')}
         selected={openView === 'year'}
-        label={utils.getYearText(date)}
+        label={'民國：' + (parseInt(utils.getYearText(date)) - 1911)}
       />
 
       {!isYearOnly && !isYearAndMonth && (

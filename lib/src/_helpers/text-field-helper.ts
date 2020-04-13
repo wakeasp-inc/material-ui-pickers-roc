@@ -134,7 +134,9 @@ export function pick12hOr24hFormat(
 }
 
 export function makeMaskFromFormat(format: string, numberMaskChar: string) {
-  return format.replace(/[a-z]/gi, numberMaskChar);
+  var str :string = format.replace(/yyyy/i,'yyy');
+  console.log(format,str)
+  return str.replace(/[a-z]/gi, numberMaskChar);
 }
 
 export const maskedDateFormatter = (mask: string, numberMaskChar: string, refuse: RegExp) => (

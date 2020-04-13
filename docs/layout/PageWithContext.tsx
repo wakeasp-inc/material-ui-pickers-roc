@@ -11,7 +11,7 @@ import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 import { Theme, createMuiTheme, CssBaseline } from '@material-ui/core';
 import { ThemeProvider, jssPreset, StylesProvider } from '@material-ui/styles';
 import { createUtilsService, UtilsLib, utilsMap } from '../utils/utilsService';
-
+import locale from 'date-fns/locale/zh-TW';
 export type ThemeType = 'light' | 'dark';
 export type Direction = Theme['direction'];
 
@@ -98,7 +98,7 @@ export const PageWithContexts: React.SFC<Props> = ({
     >
       <SnackbarProvider maxSnack={3}>
         <ThemeProvider theme={muiTheme}>
-          <MuiPickersUtilsProvider utils={utilsMap[lib]}>
+          <MuiPickersUtilsProvider utils={utilsMap[lib]} locale={locale}>
             <ThemeContext.Provider value={theme}>
               <UtilsContext.Provider value={createUtilsService(lib)}>
                 <CssBaseline />

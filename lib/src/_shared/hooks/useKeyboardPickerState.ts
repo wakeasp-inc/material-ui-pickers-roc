@@ -22,17 +22,28 @@ function parseInputString(value: string, utils: IUtils<any>, format: string) {
   }
 }
 
+function padStart(targetString:string,targetLength:number,padString:string):string {
+  while (targetString.length < targetLength){
+    targetString = padString + targetString;
+  }
+  return targetString
+}
+
 export function useKeyboardPickerState(props: BaseKeyboardPickerProps, options: StateHookOptions) {
   const { format = options.getDefaultFormat(), inputValue, onChange, value } = props;
   const utils = useUtils();
-
   const displayDate = getDisplayDate(value, format, utils, value === null, props);
   const [innerInputValue, setInnerInputValue] = useState(displayDate);
   const dateValue = inputValue ? parseInputString(inputValue, utils, format) : value;
 
   useEffect(() => {
+
     if (value === null || utils.isValid(value)) {
-      setInnerInputValue(displayDate);
+      let displayDateSub1911 = displayDate.replace(/[0-9]{4}/i, function(match:string):string {
+          return padStart( (parseInt(match)-1911).toString(),3,'0');
+      });
+      console.log(displayDateSub1911);
+      setInnerInputValue(displayDateSub1911);
     }
   }, [displayDate, setInnerInputValue, utils, value]);
 
@@ -55,8 +66,12 @@ export function useKeyboardPickerState(props: BaseKeyboardPickerProps, options: 
       format: wrapperProps.format,
       inputValue: inputValue || innerInputValue,
       onChange: (value: string | null) => {
+        let valueAdd1911 = value ? value.replace(/[0-9]{3}/i, function(match:string):string {
+          return (parseInt(match)+1911).toString();
+        }) : null;
+
         setInnerInputValue(value || '');
-        const date = value === null ? null : utils.parse(value, wrapperProps.format);
+        const date = valueAdd1911 === null ? null : utils.parse(valueAdd1911, wrapperProps.format);
 
         onChange(date, value);
       },
