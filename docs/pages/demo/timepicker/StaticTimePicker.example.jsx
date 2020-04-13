@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TimePicker } from '@material-ui/pickers';
+import { TimePicker } from '@wakeasp_tw/material-ui-roc-pickers';
 
 const StaticTimePicker = () => {
   const [date, changeDate] = useState(new Date());

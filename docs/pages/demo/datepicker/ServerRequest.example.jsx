@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import { Badge } from '@material-ui/core';
-import { DatePicker } from '@material-ui/pickers';
+import { DatePicker } from '@wakeasp_tw/material-ui-roc-pickers';
 import { makeJSDateObject } from '../../../utils/helpers';
 
 function getRandomNumber(min, max) {

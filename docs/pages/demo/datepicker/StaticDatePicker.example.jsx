@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { DatePicker } from '@material-ui/pickers';
+import { DatePicker } from '@wakeasp_tw/material-ui-roc-pickers';
 
 const StaticDatePicker = () => {
   const [date, changeDate] = useState(new Date());

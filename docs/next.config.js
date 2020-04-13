@@ -35,7 +35,7 @@ module.exports = withBundleAnalyzer(
                 config.optimization.splitChunks.cacheGroups.pickers = {
                   name: 'pickers',
                   chunks: 'all',
-                  test: /[\\\/]node_modules[\\\/]@material-ui\/pickers[\\\/]/,
+                  test: /[\\\/]node_modules[\\\/]@wakeasp_tw\/material-ui-roc-pickers[\\\/]/,
                 };
               }
 
@@ -59,7 +59,7 @@ module.exports = withBundleAnalyzer(
             },
             target: process.env.IS_NOW ? 'serverless' : 'server',
             pageExtensions: ['ts', 'tsx', 'md', 'mdx'],
-            transpileModules: ['@material-ui/pickers'],
+            transpileModules: ['@wakeasp_tw/material-ui-roc-pickers'],
             analyzeServer: ['server', 'both'].includes(process.env.BUNDLE_ANALYZE),
             analyzeBrowser: ['browser', 'both'].includes(process.env.BUNDLE_ANALYZE),
             bundleAnalyzerConfig: {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { createMuiTheme } from '@material-ui/core';
 import { ThemeProvider } from '@material-ui/styles';
-import { DateTimePicker } from '@material-ui/pickers';
+import { DateTimePicker } from '@wakeasp_tw/material-ui-roc-pickers';
 
 const defaultMaterialTheme = createMuiTheme({
   spacing: 2,
