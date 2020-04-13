@@ -176,11 +176,11 @@ const Landing = () => {
         <KawaiiIcon className={classes.kawaiiIcon} />
 
         <Typography gutterBottom variant="h4" align="center">
-          Support @material-ui/pickers
+          Support @wakeasp_tw/material-ui-roc-pickers
         </Typography>
 
         <Typography gutterBottom align="center">
-          @material-ui/pickers is a MIT licensed open source project. We are intent on code quality
+          @wakeasp_tw/material-ui-roc-pickers is a MIT licensed open source project. We are intent on code quality
           and project maintain. You can support this project as a part of material-ui's{' '}
           <a href="https://opencollective.com/material-ui">open collective</a>. Or support this
           project directly via <a href="https://www.patreon.com/user?u=9897423"> Patreon </a>

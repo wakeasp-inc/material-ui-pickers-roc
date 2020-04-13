@@ -48,7 +48,7 @@
   },
   "size-limit": [
     {
-      "path": "build/dist/@material-ui/pickers.esm.js",
+      "path": "build/dist/@wakeasp_tw/material-ui-roc-pickers.esm.js",
       "limit": "30 KB"
     }
   ],

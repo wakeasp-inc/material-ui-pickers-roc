@@ -26,7 +26,7 @@ function Regression() {
   return (
     <div style={{ marginTop: 30 }}>
       <Typography align="center" variant="h5" gutterBottom>
-        This page is using for the automate regression of @material-ui/pickers.
+        This page is using for the automate regression of @wakeasp_tw/material-ui-roc-pickers.
       </Typography>
 
       <Typography align="center" variant="h4" component="span" gutterBottom>
