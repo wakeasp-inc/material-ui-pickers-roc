@@ -22,11 +22,11 @@ function parseInputString(value: string, utils: IUtils<any>, format: string) {
   }
 }
 
-function padStart(targetString:string,targetLength:number,padString:string):string {
-  while (targetString.length < targetLength){
+function padStart(targetString: string, targetLength: number, padString: string): string {
+  while (targetString.length < targetLength) {
     targetString = padString + targetString;
   }
-  return targetString
+  return targetString;
 }
 
 export function useKeyboardPickerState(props: BaseKeyboardPickerProps, options: StateHookOptions) {
@@ -37,12 +37,11 @@ export function useKeyboardPickerState(props: BaseKeyboardPickerProps, options: 
   const dateValue = inputValue ? parseInputString(inputValue, utils, format) : value;
 
   useEffect(() => {
-
     if (value === null || utils.isValid(value)) {
-      let displayDateSub1911 = displayDate.replace(/[0-9]{4}/i, function(match:string):string {
-          return padStart( (parseInt(match)-1911).toString(),3,'0');
+      let displayDateSub1911 = displayDate.replace(/[0-9]{4}/i, function(match: string): string {
+        return padStart((parseInt(match) - 1911).toString(), 3, '0');
       });
-      console.log(displayDateSub1911);
+
       setInnerInputValue(displayDateSub1911);
     }
   }, [displayDate, setInnerInputValue, utils, value]);
@@ -66,9 +65,11 @@ export function useKeyboardPickerState(props: BaseKeyboardPickerProps, options: 
       format: wrapperProps.format,
       inputValue: inputValue || innerInputValue,
       onChange: (value: string | null) => {
-        let valueAdd1911 = value ? value.replace(/[0-9]{3}/i, function(match:string):string {
-          return (parseInt(match)+1911).toString();
-        }) : null;
+        let valueAdd1911 = value
+          ? value.replace(/[0-9]{3}/i, function(match: string): string {
+              return (parseInt(match) + 1911).toString();
+            })
+          : null;
 
         setInnerInputValue(value || '');
         const date = valueAdd1911 === null ? null : utils.parse(valueAdd1911, wrapperProps.format);

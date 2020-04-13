@@ -28,6 +28,13 @@ function useDateValues(props: BasePickerProps, options: StateHookOptions) {
   return { date, format };
 }
 
+function padStart(targetString: string, targetLength: number, padString: string): string {
+  while (targetString.length < targetLength) {
+    targetString = padString + targetString;
+  }
+  return targetString;
+}
+
 export function usePickerState(props: BasePickerProps, options: StateHookOptions) {
   const { autoOk, disabled, onAccept, onChange, onError, value, variant } = props;
 
@@ -97,7 +104,12 @@ export function usePickerState(props: BasePickerProps, options: StateHookOptions
     }
   }, [onError, validationError, value]);
 
-  const inputValue = getDisplayDate(date, format, utils, value === null, props);
+  let inputValue = getDisplayDate(date, format, utils, value === null, props);
+
+  inputValue = inputValue.replace(/[0-9]{4}/i, function(match: string): string {
+    return padStart((parseInt(match) - 1911).toString(), 3, '0');
+  });
+
   const inputProps = useMemo(
     () => ({
       inputValue,
