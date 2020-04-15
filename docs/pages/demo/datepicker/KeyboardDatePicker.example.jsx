@@ -3,14 +3,16 @@ import { KeyboardDatePicker } from '@wakeasp_tw/material-ui-roc-pickers';
 
 function KeyboardDatePickerExample(props) {
   const [selectedDate, handleDateChange] = useState(new Date());
-  console.log(selectedDate);
+
   return (
     <Fragment>
       <KeyboardDatePicker
         clearable
         value={selectedDate}
         placeholder="100/01/01"
-        onChange={date => handleDateChange(date)}
+        onChange={function(date, value) {
+          handleDateChange(date);
+        }}
         format={props.__willBeReplacedGetFormatString({
           moment: 'YYYY/MM/DD',
           dateFns: 'yyyy/MM/dd',

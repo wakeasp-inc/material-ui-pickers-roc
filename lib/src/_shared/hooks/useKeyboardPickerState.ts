@@ -38,17 +38,24 @@ export function useKeyboardPickerState(props: BaseKeyboardPickerProps, options: 
 
   useEffect(() => {
     if (value === null || utils.isValid(value)) {
-      let displayDateSub1911 = displayDate.replace(/[0-9]{4}/i, function(match: string): string {
+      let displayDateRoc = displayDate.replace(/[0-9]{4}/i, function(match: string): string {
         return padStart((parseInt(match) - 1911).toString(), 3, '0');
       });
 
-      setInnerInputValue(displayDateSub1911);
+      setInnerInputValue(displayDateRoc);
     }
   }, [displayDate, setInnerInputValue, utils, value]);
 
   const handleKeyboardChange = useCallback(
     (date: MaterialUiPickersDate) => {
-      onChange(date, date === null ? null : utils.format(date, format));
+      let dateString = date === null ? null : utils.format(date, format);
+      let displayDateRoc = dateString
+        ? dateString.replace(/[0-9]{4}/i, function(match: string): string {
+            return padStart((parseInt(match) - 1911).toString(), 3, '0');
+          })
+        : null;
+
+      onChange(date, displayDateRoc);
     },
     [format, onChange, utils]
   );
